@@ -1,6 +1,7 @@
 ﻿using DemoMvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Diagnostics;
 
 namespace DemoMvc.Controllers
@@ -14,9 +15,9 @@ namespace DemoMvc.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(string id, string category)
+        public IActionResult Index(int id, Guid category)
         {
-            return View();
+            return Json("{'name':'matheus'}");
         }
 
         public IActionResult Privacy()

@@ -44,14 +44,6 @@ namespace DemoMvc
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "module",
-                    pattern: "Management/{controller=Home}/{action=Index}/{id?}");
-
-                endpoints.MapControllerRoute(
-                    name: "category",
-                    pattern: "Category/{controller=Home}/{action=Index}/{id}/{category?}");
-
-                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
