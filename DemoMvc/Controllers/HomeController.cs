@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Diagnostics;
+using System.Linq;
 
 namespace DemoMvc.Controllers
 {
@@ -15,13 +16,25 @@ namespace DemoMvc.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(int id, Guid category)
+        public IActionResult Index()
         {
-            return Json("{'name':'matheus'}");
+            var movie = new Movie()
+            {
+                Title = "hi",
+                ReleaseDate = DateTime.Now,
+                Type = null,
+                Ratings = 10,
+                Price = 200000
+            };
+            return RedirectToAction("Privacy", movie);
+            return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Privacy(Movie movie)
         {
+            foreach (var item in ModelState.Values.SelectMany(m => m.Errors))
+                Console.WriteLine(item.ErrorMessage);
+
             return View();
         }
 
