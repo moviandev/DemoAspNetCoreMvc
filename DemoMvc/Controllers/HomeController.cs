@@ -26,7 +26,6 @@ namespace DemoMvc.Controllers
                 Ratings = 10,
                 Price = 200000
             };
-            return RedirectToAction("Privacy", movie);
             return View();
         }
 
